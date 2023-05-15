@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administration du blog</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/501b8daf63.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="nav">
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/administration.php">Administration</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="section-add-post">
+      <p>Nouveau poste</p>
+      <form action="/add_post.php" method="post" class="add-post">
+
+        <input class="add-post__title" name="title" id="title-form" type="text" placeholder="Titre">
+
+        <textarea class="add-post__content" rows="5" cols="50" name="content" id="content-form" placeholder="Contenu"></textarea>
+
+        <input class="add-post__author-firstname" name="author-firstname" type="text" placeholder="prénom">
+
+        <input class="add-post__author-lastname" name="author-lastname" type="text" placeholder="Nom">
+
+        <input class="add-post__category" name="category" type="text" placeholder="Categorie">
+
+        <input class="add-post__submit" type="submit" value="Poster">
+      </form>
+    </section>
+    <section class="section-posts">
+      <?php foreach($posts as $post){ ?>
+        <div class="post">
+        <a class="post__title" href="/detail.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a>
+          <p class="post__content"><?= $post['contents'] ?></p>
+          <br>
+          <p class="post__category">Categorie <?= $post['category_name'] ?></p>
+          <p class="post__author">par <?= $post['author_name'] ?></p>
+          <p class="post__publish-date">le <?= $post['creationTimestamp'] ?></p>
+
+          <form action="/edit_post.php" method="post" class="unvisible edit-form">
+            <input type="hidden" name="id" value="<?= $post["id"] ?>">
+            <input class="edit-post__title" name="title" id="title-form" type="text" placeholder="Titre" value="<?= $post['title'] ?>">
+            <textarea class="edit-post__content" rows="5" cols="50" name="content" id="content-form" placeholder="Contenu"><?= $post['contents'] ?></textarea>
+            <input class="edit-post__submit" type="submit" value="Modifier">
+          </form>
+
+          <form action="/delete_post.php" method="post" class="unvisible delete-form">
+            <input type="hidden" name="id" value="<?= $post["id"] ?>">
+            <input class="delete-form__submit" type="submit" value="Suprimer">
+          </form>
+
+          <div class="post__actions">
+            <p class="edit-post"><i class="fa-solid fa-pen"></i></p>
+            <p class="delete-post"><i class="fa-solid fa-trash"></i></p>
+          </div>
+        </div>
+      <?php } ?>
+
+      <p class="edit-post"></p>
+    </section>
+  </main>
+  <footer>
+    <p>Ceci est une évaluation de cours de l'école de l'ESGI</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

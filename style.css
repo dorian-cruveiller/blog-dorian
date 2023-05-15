@@ -1,0 +1,145 @@
+body {
+  background-color: #9CA777;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  margin: 0;
+  padding: 0;
+}
+
+.nav {
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 0;
+  background-color: #FEE8B0;
+}
+
+.nav li {
+  list-style: none;
+}
+
+.nav li a {
+  text-decoration: none;
+  color: #808080;
+}
+
+.section-posts {
+  text-align: center;
+}
+
+.post, .comment {
+  border: 1px solid black;
+  display: block;
+  padding: 1rem 2rem;
+  color: #F97B22;
+  background-color: #FEE8B0;
+  width: 25rem;
+  margin: 2rem auto;
+}
+
+.post__title {
+  font-size: 2rem;
+  text-decoration: none;
+  color: #9CA777;
+}
+
+.post__publish-date, .post__author {
+  text-align: right;
+  line-height: 0.4rem;
+}
+
+.post__category {
+  text-align: left;
+  line-height: 0.4rem;
+}
+
+.post__content {
+  font-size: 1.4rem;
+}
+
+.post__actions {
+  display: flex;
+  justify-content: right;
+}
+
+.post__actions p {
+  margin: 0 0.5rem;
+}
+
+footer {
+  background-color: #FEE8B0;
+  padding: 2rem 0;
+  text-align: center;
+  color: #808080;
+}
+
+.section-add-post, .add-comment {
+  border: 1px solid black;
+  display: block;
+  padding: 1rem 2rem;
+  color: #F97B22;
+  background-color: #FEE8B0;
+  width: 25rem;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.section-add-post input, .section-add-pos textarea, .edit-post__title, .edit-post__content, .edit-post__submit, .delete-form__submit, .add-comment__submit, .add-comment__content, .add-comment__nickname {
+  display: block;
+  margin: .5rem 0;
+  width: 100%;
+}
+
+.section-add-post p {
+  font-size: 2rem;
+  text-decoration: none;
+  color: #9CA777;
+}
+
+.add-post__submit, .edit-post__submit, .delete-form__submit, .add-comment__submit {
+  padding: .4rem .8rem;
+  background-color: #1565c0;
+  border: none;
+  border-radius: .4rem;
+  color: #eee;
+}
+
+.delete-form__submit {
+  background-color: red;
+}
+
+.unvisible {
+  display: none;
+}
+
+.comment-title {
+  color: #FEE8B0;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.comment__contents {
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.comment__date, .comment__nickname {
+  font-size: 1rem;
+  line-height: 0.3rem;
+  text-align: right;
+}
+
+.add-comment__label {
+  font-size: 1.6rem;
+}
+
+.edit-post, .delete-post {
+  cursor: pointer;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+}

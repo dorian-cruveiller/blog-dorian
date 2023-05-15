@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/501b8daf63.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <ul class="nav">
+      <li><a href="/">Accueil</a></li>
+      <li><a href="/administration.php">Administration</a></li>
+    </ul>
+  </header>
+  <main>
+    <section class="section-posts">
+      <?php foreach($posts as $post){ ?>
+        <div class="post">
+          <a class="post__title" href="/detail.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a>
+          <p class="post__content"><?= $post['contents'] ?></p>
+          <br>
+          <p class="post__category">Categorie <?= $post['category_name'] ?></p>
+          <p class="post__publish-date">poster le <?= $post['creationTimestamp'] ?></p>
+          <p class="post__author">par <?= $post['author_name'] ?></p>
+        </div>
+      <?php } ?>
+    </section>
+  </main>
+  <footer>
+    <p>Ceci est une évaluation de cours de l'école de l'ESGI</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail du poste</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/501b8daf63.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <ul class="nav">
+      <li><a href="/">Accueil</a></li>
+      <li><a href="/administration.php">Administration</a></li>
+    </ul>
+  </header>
+  <main>
+    <section class="post-section">
+      <div class="post">
+        <p class="post__title"><?= $post['title'] ?></p>
+        <p class="post__content"><?= $post['contents'] ?></p>
+        <br>
+        <p class="post__category">Categorie <?= $post['category_name'] ?></p>
+        <p class="post__author">par <?= $post['author_name'] ?></p>
+        <p class="post__publish-date">le <?= $post['creationTimestamp'] ?></p>
+      </div>
+    </section>
+    <section class="comment-section">
+      <h2 class="comment-title">Commentaire</h2>
+      <div class="add-comment">
+        <p class="add-comment__label">Nouveau Commentaire</p>
+        <form action="/add_comment.php" method="post" class="">
+
+          <textarea class="add-comment__content" rows="5" cols="50" name="content" type="text" placeholder="Contenu"></textarea>
+
+          <input class="add-comment__nickname" name="nickname" type="text" placeholder="pseudo">
+
+          <input name="post_id" type="hidden" value=" <?= $post_id ?>">
+
+          <input class="add-comment__submit" type="submit" value="Publié">
+        </form>
+      </div>
+    <?php foreach($comments as $comment){ ?>
+        <div class="comment">
+          <p class="comment__contents"><?= $comment['contents'] ?></p>
+          <p class="comment__date">Publié le <?= $comment['creationtimestamp'] ?></p>
+          <p class="comment__nickname">par <?= $comment['nickname'] ?></p>
+        </div>
+      <?php } ?>
+    </section>
+  </main>
+  <footer>
+    <p>Ceci est une évaluation de cours de l'école de l'ESGI</p>
+  </footer>
+</body>
+</html>
